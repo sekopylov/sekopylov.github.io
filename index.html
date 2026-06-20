@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Personal homepage for Sergei Kopylov with contact information." />
+    <meta name="description" content="Sergei Kopylov, Research Engineer working on LLM alignment and post-training." />
     <meta property="og:title" content="Sergei Kopylov" />
-    <meta property="og:description" content="Research Engineer @ Yandex. Contact: jegvide@gmail.com" />
+    <meta property="og:description" content="Research Engineer (LLMs / Alignment). Contact: kopylov1558@gmail.com" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://sekopylov.github.io/" />
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/149009179?v=4" />
@@ -13,16 +13,16 @@
     <style>
       :root {
         color-scheme: light;
-        --ink: #18212f;
-        --muted: #5b6678;
-        --line: rgba(24, 33, 47, 0.14);
-        --paper: #fbfaf7;
-        --panel: rgba(255, 255, 255, 0.82);
-        --accent: #0f766e;
-        --accent-strong: #134e4a;
-        --rose: #b4536d;
-        --gold: #b7791f;
-        --shadow: 0 24px 70px rgba(24, 33, 47, 0.14);
+        --bg: #f5f1ea;
+        --paper: #fffdf8;
+        --ink: #181a22;
+        --muted: #626a73;
+        --soft: #e9e1d6;
+        --line: rgba(24, 26, 34, 0.13);
+        --red: #df1f2d;
+        --green: #147568;
+        --blue: #255b8a;
+        --shadow: 0 28px 90px rgba(48, 42, 32, 0.14);
       }
 
       * {
@@ -32,16 +32,9 @@
       html {
         min-height: 100%;
         background:
-          linear-gradient(115deg, rgba(15, 118, 110, 0.08), transparent 38%),
-          linear-gradient(245deg, rgba(180, 83, 109, 0.08), transparent 42%),
-          repeating-linear-gradient(
-            90deg,
-            rgba(24, 33, 47, 0.026) 0,
-            rgba(24, 33, 47, 0.026) 1px,
-            transparent 1px,
-            transparent 72px
-          ),
-          linear-gradient(135deg, #f7f3ec 0%, #f4f7f6 44%, #eef3f7 100%);
+          linear-gradient(135deg, rgba(223, 31, 45, 0.08) 0 18%, transparent 18% 100%),
+          linear-gradient(315deg, rgba(20, 117, 104, 0.1) 0 22%, transparent 22% 100%),
+          var(--bg);
       }
 
       body {
@@ -49,7 +42,7 @@
         margin: 0;
         display: grid;
         place-items: center;
-        padding: 32px;
+        padding: 34px;
         color: var(--ink);
         font-family:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -57,224 +50,384 @@
       }
 
       main {
-        width: min(100%, 920px);
+        width: min(100%, 1060px);
       }
 
-      .profile {
+      .page {
         display: grid;
-        grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1.18fr);
-        min-height: 520px;
+        grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+        min-height: 660px;
         overflow: hidden;
         border: 1px solid var(--line);
-        background: var(--panel);
+        background: var(--paper);
         box-shadow: var(--shadow);
-        backdrop-filter: blur(28px);
       }
 
-      .portrait {
-        position: relative;
+      .intro {
         display: grid;
-        align-content: end;
-        min-height: 460px;
-        padding: 28px;
+        align-content: center;
+        gap: 30px;
+        padding: clamp(30px, 5vw, 54px);
         background:
-          linear-gradient(180deg, rgba(24, 33, 47, 0.1), rgba(24, 33, 47, 0.54)),
-          url("https://avatars.githubusercontent.com/u/149009179?v=4") center / cover;
+          linear-gradient(180deg, rgba(255, 255, 255, 0.54), rgba(255, 255, 255, 0.1)),
+          linear-gradient(140deg, #fbf3e7 0%, #edf5f2 100%);
+        border-right: 1px solid var(--line);
       }
 
-      .portrait::before {
-        content: "";
-        position: absolute;
-        inset: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.34);
-        pointer-events: none;
+      .avatar-wrap {
+        display: grid;
+        justify-items: start;
+        gap: 18px;
       }
 
-      .identity-mark {
-        position: relative;
+      .avatar {
+        width: clamp(138px, 20vw, 188px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 8px solid #ffffff;
+        object-fit: cover;
+        object-position: center;
+        box-shadow: 0 18px 48px rgba(24, 26, 34, 0.18);
+      }
+
+      .status {
         display: inline-flex;
         width: fit-content;
         align-items: center;
-        gap: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.32);
-        background: rgba(255, 255, 255, 0.14);
-        padding: 10px 12px;
-        color: #ffffff;
-        font-size: 0.82rem;
-        font-weight: 700;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      .identity-mark span {
-        display: block;
-        width: 9px;
-        height: 9px;
-        background: #f4c95d;
-      }
-
-      .content {
-        display: grid;
-        align-content: center;
-        gap: 28px;
-        padding: clamp(32px, 7vw, 72px);
-      }
-
-      .eyebrow {
-        color: var(--accent);
-        font-size: 0.86rem;
-        font-weight: 800;
-        letter-spacing: 0;
-        text-transform: uppercase;
-      }
-
-      h1 {
-        margin: 0;
-        max-width: 10ch;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: clamp(3.5rem, 10vw, 7.4rem);
-        line-height: 0.88;
-        font-weight: 500;
-      }
-
-      .summary {
-        max-width: 33rem;
-        margin: 0;
-        color: var(--muted);
-        font-size: clamp(1.05rem, 2vw, 1.25rem);
-        line-height: 1.65;
-      }
-
-      .contact-list {
-        display: grid;
-        gap: 14px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .contact-list > li > a,
-      .contact-list > li > span {
-        display: grid;
-        grid-template-columns: 112px minmax(0, 1fr);
-        gap: 18px;
-        align-items: baseline;
-        padding: 17px 0;
-        border-top: 1px solid var(--line);
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .contact-list li:last-child a {
-        border-bottom: 1px solid var(--line);
-      }
-
-      .label {
-        color: var(--muted);
+        gap: 9px;
+        color: var(--green);
         font-size: 0.78rem;
         font-weight: 800;
         letter-spacing: 0;
         text-transform: uppercase;
       }
 
-      .value {
-        min-width: 0;
-        color: var(--ink);
-        font-size: clamp(1rem, 2vw, 1.12rem);
-        font-weight: 700;
-        overflow-wrap: anywhere;
+      .status::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--red);
       }
 
-      .contact-list a:hover .value,
-      .contact-list a:focus-visible .value {
-        color: var(--accent-strong);
-        text-decoration: underline;
-        text-decoration-color: var(--gold);
-        text-decoration-thickness: 3px;
-        text-underline-offset: 4px;
+      h1 {
+        margin: 0;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(3.2rem, 7.4vw, 6.7rem);
+        line-height: 0.9;
+        font-weight: 500;
       }
 
-      .note {
+      .role {
+        margin: 0;
+        max-width: 23rem;
+        color: var(--muted);
+        font-size: 1.12rem;
+        line-height: 1.65;
+      }
+
+      .actions {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .actions a {
+        display: inline-flex;
+        min-height: 44px;
         align-items: center;
-        color: var(--muted);
-        font-size: 0.92rem;
+        justify-content: center;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.72);
+        padding: 0 15px;
+        color: var(--ink);
+        font-size: 0.95rem;
+        font-weight: 800;
+        text-decoration: none;
       }
 
-      .note::before {
+      .actions a:hover,
+      .actions a:focus-visible {
+        border-color: rgba(223, 31, 45, 0.5);
+        color: var(--red);
+        outline: none;
+      }
+
+      .details {
+        display: grid;
+        align-content: center;
+        gap: 34px;
+        padding: clamp(34px, 6vw, 70px);
+      }
+
+      .section {
+        display: grid;
+        gap: 18px;
+      }
+
+      .section-title {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 0;
+        color: var(--green);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .section-title::after {
         content: "";
-        width: 34px;
-        height: 2px;
-        background: var(--rose);
+        flex: 1;
+        height: 1px;
+        background: var(--line);
       }
 
-      @media (max-width: 760px) {
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .fact {
+        display: grid;
+        gap: 6px;
+        min-height: 92px;
+        align-content: center;
+        border: 1px solid var(--line);
+        background: #ffffff;
+        padding: 17px;
+      }
+
+      .label {
+        color: var(--muted);
+        font-size: 0.73rem;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .value,
+      .fact a {
+        min-width: 0;
+        color: var(--ink);
+        font-size: 1rem;
+        font-weight: 800;
+        line-height: 1.35;
+        overflow-wrap: anywhere;
+        text-decoration: none;
+      }
+
+      .fact a:hover,
+      .fact a:focus-visible {
+        color: var(--blue);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        outline: none;
+      }
+
+      .experience {
+        display: grid;
+        grid-template-columns: 42px minmax(0, 1fr);
+        gap: 18px;
+        border: 1px solid var(--line);
+        background: linear-gradient(180deg, #ffffff, #fbfaf6);
+        padding: 22px;
+      }
+
+      .mark {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        color: #ffffff;
+        background: var(--red);
+        font-size: 1.5rem;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .experience-body {
+        display: grid;
+        gap: 10px;
+      }
+
+      .company-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: baseline;
+      }
+
+      .company {
+        font-size: 1.15rem;
+        font-weight: 900;
+      }
+
+      .meta {
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(1.24rem, 2.4vw, 1.55rem);
+        line-height: 1.2;
+      }
+
+      .experience p {
+        margin: 0;
+        color: #2c3138;
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 2px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .tags li {
+        border: 1px solid rgba(20, 117, 104, 0.22);
+        background: rgba(20, 117, 104, 0.08);
+        padding: 7px 10px;
+        color: var(--green);
+        font-size: 0.83rem;
+        font-weight: 800;
+      }
+
+      @media (max-width: 820px) {
         body {
           padding: 18px;
         }
 
-        .profile {
+        .page {
           grid-template-columns: 1fr;
           min-height: 0;
         }
 
-        .portrait {
-          min-height: 320px;
+        .intro {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
         }
 
-        .content {
-          padding: 30px 26px 34px;
+        .avatar-wrap {
+          justify-items: center;
+          text-align: center;
+        }
+
+        .actions {
+          justify-content: center;
+        }
+
+        .role {
+          margin-inline: auto;
+          text-align: center;
         }
 
         h1 {
-          max-width: 9ch;
+          text-align: center;
         }
       }
 
-      @media (max-width: 520px) {
-        .contact-list > li > a,
-        .contact-list > li > span {
+      @media (max-width: 560px) {
+        .intro,
+        .details {
+          padding: 26px 22px;
+        }
+
+        .contact-grid {
           grid-template-columns: 1fr;
-          gap: 6px;
+        }
+
+        .experience {
+          grid-template-columns: 1fr;
+        }
+
+        .mark {
+          width: 38px;
+          height: 38px;
         }
       }
     </style>
   </head>
   <body>
-    <main class="profile" aria-label="Personal homepage for Sergei Kopylov">
-      <section class="portrait" aria-label="Profile image">
-        <div class="identity-mark"><span></span> Public contact page</div>
-      </section>
-      <section class="content">
-        <div class="eyebrow">Research Engineer @ Yandex</div>
+    <main class="page" aria-label="Personal homepage for Sergei Kopylov">
+      <section class="intro">
+        <div class="avatar-wrap">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/149009179?v=4" alt="Sergei Kopylov" />
+          <div class="status">Open contact page</div>
+        </div>
         <h1>Sergei Kopylov</h1>
-        <p class="summary">
-          I work on LLM post-training and research engineering. This page confirms my public
-          homepage and contact information.
+        <p class="role">
+          Research Engineer working on LLM alignment, post-training, evaluation, and verification
+          tooling for reasoning models.
         </p>
-        <ul class="contact-list" aria-label="Contact details">
-          <li>
-            <span>
+        <ul class="actions" aria-label="Primary links">
+          <li><a href="mailto:kopylov1558@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/sergei-kopylov-34868128a/">LinkedIn</a></li>
+          <li><a href="https://github.com/sekopylov">GitHub</a></li>
+        </ul>
+      </section>
+
+      <section class="details">
+        <div class="section">
+          <h2 class="section-title">Contact</h2>
+          <div class="contact-grid">
+            <div class="fact">
               <span class="label">Name</span>
               <span class="value">Sergei Kopylov</span>
-            </span>
-          </li>
-          <li>
-            <a href="mailto:jegvide@gmail.com">
+            </div>
+            <div class="fact">
               <span class="label">Email</span>
-              <span class="value">jegvide@gmail.com</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/sekopylov">
+              <a href="mailto:kopylov1558@gmail.com">kopylov1558@gmail.com</a>
+            </div>
+            <div class="fact">
+              <span class="label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/sergei-kopylov-34868128a/">sergei-kopylov</a>
+            </div>
+            <div class="fact">
               <span class="label">GitHub</span>
-              <span class="value">github.com/sekopylov</span>
-            </a>
-          </li>
-        </ul>
-        <div class="note">Homepage URL: https://sekopylov.github.io/</div>
+              <a href="https://github.com/sekopylov">github.com/sekopylov</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Experience</h2>
+          <article class="experience">
+            <div class="mark" aria-hidden="true">Y</div>
+            <div class="experience-body">
+              <div class="company-line">
+                <span class="company">Yandex</span>
+                <span class="meta">Full-time · Nov 2025 - Present</span>
+              </div>
+              <h2>Research Engineer (LLMs / Alignment)</h2>
+              <p>
+                Fine-tune and align reasoning LLMs via SFT and reinforcement learning
+                (RLHF + RLVR). Develop and evaluate alignment methods, build automated evaluation
+                and verification tooling for RL training, and create new reasoning tasks for
+                research experiments.
+              </p>
+              <ul class="tags" aria-label="Experience areas">
+                <li>LLM alignment</li>
+                <li>SFT</li>
+                <li>RLHF + RLVR</li>
+                <li>Evaluation tooling</li>
+              </ul>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
   </body>
